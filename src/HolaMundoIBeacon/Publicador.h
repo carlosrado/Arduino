@@ -2,6 +2,7 @@
 
 // --------------------------------------------------------------
 // Jordi Bataller i Mascarell
+// @nombre: Publicador.h
 // @descripcion: clase para publicar los valores del sensor
 // --------------------------------------------------------------
 
@@ -26,7 +27,7 @@ private:
 
 public:
   EmisoraBLE laEmisora {
-	"GTI-3A", //  nombre emisora
+	"GTI-CRAM-3A", //  nombre emisora
 	  0x004c, // fabricanteID (Apple)
 	  4 // txPower
 	  };
