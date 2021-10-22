@@ -1,5 +1,6 @@
 // -*- mode: c++ -*-
-
+// @nombre: Medidor.h
+// @descripcion: clase para medir datos del sensor
 #ifndef MEDIDOR_H_INCLUIDO
 #define MEDIDOR_H_INCLUIDO
 

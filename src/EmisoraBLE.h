@@ -3,6 +3,7 @@
 // ----------------------------------------------------------
 // Jordi Bataller i Mascarell
 // 2019-07-07
+// @descripcion: clase emisor bluetooth de la placa
 // ----------------------------------------------------------
 #ifndef EMISORA_H_INCLUIDO
 #define EMISORA_H_INCLUIDO

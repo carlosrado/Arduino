@@ -1,8 +1,10 @@
-// -*- mode: c++ -*-
+l// -*- mode: c++ -*-
 
 // ----------------------------------------------------------
 // Jordi Bataller i Mascarell
 // 2019-07-17
+// @nombre: CO2.h
+// @descripcion: clase servicios para la emisora bluetooth
 // ----------------------------------------------------------
 #ifndef SERVICIO_EMISORA_H_INCLUIDO
 #define SERVICIO_EMISORA_H_INCLUIDO
@@ -104,13 +106,13 @@ public:
      *       Caracteristica() constructor con permisos
      *       @nombreCaracteristica_:[char] array con el nombre
      *       @props:N propiedades
-     *       @permisoRead:BleSecurityMode
-     *       @permisoWrite:BleSecurityMode
+     *       @permisoRead:SecurityMode_t
+     *       @permisoWrite:SecurityMode_t
      */
 	Caracteristica( const char * nombreCaracteristica_ ,
 					uint8_t props,
-					BleSecurityMode permisoRead,
-					BleSecurityMode permisoWrite, 
+					SecurityMode_t permisoRead,
+					SecurityMode_t permisoWrite, 
 					uint8_t tam ) 
 	  :
 	  Caracteristica( nombreCaracteristica_ ) // llamada al otro constructor
@@ -132,9 +134,9 @@ public:
 	} // ()
 
 	// .........................................................
-	// BleSecurityMode::SECMODE_OPEN  , BleSecurityMode::SECMODE_NO_ACCESS
+	// SecurityMode_t::SECMODE_OPEN  , SecurityMode_t::SECMODE_NO_ACCESS
 	// .........................................................
-	void asignarPermisos( BleSecurityMode permisoRead, BleSecurityMode permisoWrite ) {
+	void asignarPermisos( SecurityMode_t permisoRead, SecurityMode_t permisoWrite ) {
 	  // no puedo escribir AUN si el constructor llama a esto: Serial.println( "laCaracteristica.setPermission( permisoRead, permisoWrite ); " );
 	  (*this).laCaracteristica.setPermission( permisoRead, permisoWrite );
 	} // ()
@@ -158,13 +160,13 @@ public:
     /**      
      *       asignarTamanyoDatos()
      *       @props:N propiedades
-     *       @permisoRead:BleSecurityMode
-     *       @permisoWrite:BleSecurityMode
+     *       @permisoRead:SecurityMode_t
+     *       @permisoWrite:SecurityMode_t
      *       @tam:N tamaño
      */
 	void asignarPropiedadesPermisosYTamanyoDatos( uint8_t props,
-												 BleSecurityMode permisoRead,
-												 BleSecurityMode permisoWrite, 
+												 SecurityMode_t permisoRead,
+												 SecurityMode_t permisoWrite, 
 												 uint8_t tam ) {
 	  asignarPropiedades( props );
 	  asignarPermisos( permisoRead, permisoWrite );

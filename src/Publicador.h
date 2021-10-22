@@ -1,7 +1,8 @@
-// -*- mode: c++ -*-
+  // -*- mode: c++ -*-
 
 // --------------------------------------------------------------
 // Jordi Bataller i Mascarell
+// @descripcion: clase para publicar los valores del sensor
 // --------------------------------------------------------------
 
 #ifndef PUBLICADOR_H_INCLUIDO
@@ -17,7 +18,7 @@ private:
 
   uint8_t beaconUUID[16] = { 
 	'E', 'P', 'S', 'G', '-', 'G', 'T', 'I', 
-	'-', 'P', 'R', 'O', 'Y', '-', '3', 'A'
+	'-', 'C', 'R', 'A', 'M', '-', '3', 'A'
 	};
 
   // ............................................................
@@ -69,37 +70,37 @@ public:
      *       @tiempoEspera:N delay
      */
   void publicarCO2( int16_t valorCO2, uint8_t contador,
-					long tiempoEspera ) {
+          long tiempoEspera ) {
 
-	//
-	// 1. empezamos anuncio
-	//
-	uint16_t major = (MedicionesID::CO2 << 8) + contador;
-	(*this).laEmisora.emitirAnuncioIBeacon( (*this).beaconUUID, 
-											major,
-											valorCO2, // minor
-											(*this).RSSI // rssi
-									);
+  //
+  // 1. empezamos anuncio
+  //
+  uint16_t major = (MedicionesID::CO2 << 8) + contador;
+  (*this).laEmisora.emitirAnuncioIBeacon( (*this).beaconUUID, 
+                      major,
+                      valorCO2, // minor
+                      (*this).RSSI // rssi
+                  );
 
-	/*
-	Globales::elPuerto.escribir( "   publicarCO2(): valor=" );
-	Globales::elPuerto.escribir( valorCO2 );
-	Globales::elPuerto.escribir( "   contador=" );
-	Globales::elPuerto.escribir( contador );
-	Globales::elPuerto.escribir( "   todo="  );
-	Globales::elPuerto.escribir( major );
-	Globales::elPuerto.escribir( "\n" );
-	*/
+  /*
+  Globales::elPuerto.escribir( "   publicarCO2(): valor=" );
+  Globales::elPuerto.escribir( valorCO2 );
+  Globales::elPuerto.escribir( "   contador=" );
+  Globales::elPuerto.escribir( contador );
+  Globales::elPuerto.escribir( "   todo="  );
+  Globales::elPuerto.escribir( major );
+  Globales::elPuerto.escribir( "\n" );
+  */
 
-	//
-	// 2. esperamos el tiempo que nos digan
-	//
-	esperar( tiempoEspera );
+  //
+  // 2. esperamos el tiempo que nos digan
+  //
+  esperar( tiempoEspera );
 
-	//
-	// 3. paramos anuncio
-	//
-	(*this).laEmisora.detenerAnuncio();
+  //
+  // 3. paramos anuncio
+  //
+  (*this).laEmisora.detenerAnuncio();
   } // ()
   // ............................................................
   // ............................................................
@@ -110,19 +111,19 @@ public:
      *       @tiempoEspera:N delay
      *  */
   void publicarTemperatura( int16_t valorTemperatura,
-							uint8_t contador, long tiempoEspera ) {
+              uint8_t contador, long tiempoEspera ) {
 
-	uint16_t major = (MedicionesID::TEMPERATURA << 8) + contador;
-	(*this).laEmisora.emitirAnuncioIBeacon( (*this).beaconUUID, 
-											major,
-											valorTemperatura, // minor
-											(*this).RSSI // rssi
-									);
-	esperar( tiempoEspera );
+  uint16_t major = (MedicionesID::TEMPERATURA << 8) + contador;
+  (*this).laEmisora.emitirAnuncioIBeacon( (*this).beaconUUID, 
+                      major,
+                      valorTemperatura, // minor
+                      (*this).RSSI // rssi
+                  );
+  esperar( tiempoEspera );
 
-	(*this).laEmisora.detenerAnuncio();
+  (*this).laEmisora.detenerAnuncio();
   } // ()
-	
+  
 }; // class
 
 // --------------------------------------------------------------

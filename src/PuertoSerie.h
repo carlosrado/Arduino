@@ -4,6 +4,7 @@
 // ----------------------------------------------------------
 // Jordi Bataller i Mascarell
 // 2019-07-07
+// @descripcion: clase para el control del puerto serie
 // ----------------------------------------------------------
 
 #ifndef PUERTO_SERIE_H_INCLUIDO
